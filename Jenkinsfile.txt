@@ -1,0 +1,39 @@
+pipeline {
+    agent  any
+    
+    environment {
+        PROJECT_NAME = "nocodre"
+        OWNER_NAME = "Voronov"
+    }
+
+    stages {
+        stage('1-build') {
+            steps {
+                echo 'Start 1-build'
+                echo 'Building'
+                echo 'Finish 1-build'
+            }
+        }
+        stage('2-test') {
+            steps {
+                echo 'Start 2-test'
+                echo 'Testing'
+                echo 'Finish 2-test'
+                sh "ls -la"
+                echo "Hello ${OWNER_NAME}"
+                echo "Project name is: ${PROJECT_NAME}"
+            }
+        }
+        stage('3-deploy') {
+            steps {
+                echo 'Start 3-deploy'
+                echo 'Deploying..'
+                sh '''
+                    echo "Line1"
+                    
+                '''
+                echo 'Finish 3-deploy'
+            }
+        }
+    }
+}
